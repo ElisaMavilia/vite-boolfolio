@@ -1,21 +1,23 @@
 <template>
-    <div>
+    <div class="container">
        
-      <h1 class="text-center">Elenco dei progetti</h1>
-  <i class="fa fa-solid fa-suitcase ps-4"></i>
-  <ul>
-    <li v-for="project in projects" :key="project.id">{{ project.title }}
-      <img v-if="project.image" :src="project.image" :alt="project.title">
-    </li>
-  </ul>
+      <h1 class="">Elenco dei progetti</h1>
+  
+ <div class="row">
+  <div class="col-12 col-md-3 col-lg-6" v-for="project in projects" :key="project.id">
+      <CardComponent :item="project"/> <!-- il contenuto di project viene passato al generico item che viene passato come props nel CardComponent  -->
+    </div>
+ </div>
+    
+<!-- Qui va la pagination -->
   <nav aria-label="Page navigation example">
   <ul class="pagination">
     <li class="page-item">
-      <a @click="getAllProjects()"class="page-link" href="#" aria-label="Previous">
+      <a @click="getAllProjects()" class="page-link" href="#" aria-label="Previous">
         <span aria-hidden="true">&laquo;</span>
       </a>
     </li>
-    <li class="page-item"><a class="page-link" href="{{ project.results.first_page }}">1</a></li>
+    <li class="page-item"><a @click="getAllProjects()" class="page-link" href="#">1</a></li>
     <li class="page-item"><a @click="getAllProjects()" class="page-link" href="#">2</a></li>
     <li class="page-item"><a @click="getAllProjects()" class="page-link" href="#">3</a></li>
     <li class="page-item">
@@ -31,8 +33,12 @@
 <script>
 import axios from 'axios';
 import { store } from '../store';
+import CardComponent from '../components/CardComponent.vue';
 export default {
-    name: 'App',
+    name: 'ProjectList',
+    components: { 
+      CardComponent 
+    },
     data() {
       return {
         store,

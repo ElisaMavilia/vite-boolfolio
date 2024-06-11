@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import AppHome from "./pages/AppHome.vue";
 import ProjectList from "./pages/ProjectList.vue";
+import ProjectComponent from "./pages/ProjectComponent.vue";
 
 const router = createRouter({
     history: createWebHistory(), /* crea un history per la web: tiene in memoria tutte le rotte che sono state raggiunte con il browser */
@@ -14,6 +15,11 @@ const router = createRouter({
         path: "/projects",
         name: "projects",
         component: ProjectList,
+      },
+      {
+        path: "/posts/:slug",
+        name: "single-post",
+        component: ProjectComponent,
       },
     ],
 });
