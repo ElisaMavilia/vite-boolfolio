@@ -3,9 +3,6 @@
         <h1>{{ project.title }}</h1>
         
         <p>{{ project.content }}</p>
-        
-        <RouterLink :to="{ name: 'single-post', params: { 'slug': 'eum-porro-sed-optio-quis-itaque-ex-harum' } }">Leggi
-            Read More</RouterLink>
     </div>
 </template>
 
@@ -30,7 +27,7 @@
         }
     },
     mounted() {
-        this.getPost();
+        this.getSingleProject();
     },
 }
 </script>
