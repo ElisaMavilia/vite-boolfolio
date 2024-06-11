@@ -18,7 +18,7 @@ const router = createRouter({
       },
       {
         path: "/posts/:slug",
-        name: "single-post",
+        name: "single-project",
         component: ProjectComponent,
       },
     ],

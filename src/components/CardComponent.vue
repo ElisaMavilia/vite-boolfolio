@@ -7,10 +7,12 @@
     </div>
     <div class="col-md-8">
       <div class="card-body">
-        <h5 class="card-title">{{item.title}}</h5>
+        <h5 class="card-title">{{item.title}}
+            {{ item.image }}
+        </h5>
         <p class="card-text">{{item.content}}</p>
         <p class="card-text"><small class="text-body-secondary">{{item.updated_at}}</small></p>
-        <RouterLink :to="{ name: 'single-post', params: { 'slug': item.slug } }" class="btn btn-warning">
+        <RouterLink :to="{ name: 'single-project', params: { 'slug': item.slug } }" class="btn btn-warning">
             Read More</RouterLink>
       </div>
     </div>
@@ -32,7 +34,7 @@
         computed: {
         getImage() {
 
-            return this.item.image ? this.store.imgBasePath + this.item.image : '/images/placeholder.png';
+            return this.item.image ? this.store.imgBasePath + this.item.image : '';
         }
     }
     }
