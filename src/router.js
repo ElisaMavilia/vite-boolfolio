@@ -1,0 +1,14 @@
+import { createRouter, createWebHistory } from "vue-router";
+import AppHome from "./pages/AppHome.vue";
+
+const router = createRouter({
+    history: createWebHistory(), /* crea un history per la web: tiene in memoria tutte le rotte che sono state raggiunte con il browser */
+    routes: [ /* array di oggetti in cui ogni oggetto è una rotta */
+      {
+        path: "/", /* path indica il percorso */
+        name: "home", 
+        component: AppHome, /* su laravel corrisponde al controller: si tratta del componente che gestisce la rotta */
+      },
+    ],
+});
+export { router };

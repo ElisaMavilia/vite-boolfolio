@@ -1,6 +1,8 @@
 <template>
   <!-- {{ projects }} -->
-  <h1 class="text-center">Elenco dei progetti</h1>
+    <main>
+      <router-view></router-view>
+      <h1 class="text-center">Elenco dei progetti</h1>
   <i class="fa fa-solid fa-suitcase ps-4"></i>
   <ul>
     <li v-for="project in projects" :key="project.id">{{ project.title }}
@@ -18,12 +20,14 @@
     <li class="page-item"><a @click="getAllProjects()" class="page-link" href="#">2</a></li>
     <li class="page-item"><a @click="getAllProjects()" class="page-link" href="#">3</a></li>
     <li class="page-item">
-      <a @click="getAllProjects()" class="page-link" href="#" aria-label="Next">
+      <a @click.prevent="getAllProjects()" class="page-link" href="#" aria-label="Next">
         <span aria-hidden="true">&raquo;</span>
       </a>
     </li>
   </ul>
 </nav>
+    </main>
+  
 </template>
 
 <script>
@@ -37,15 +41,17 @@ import axios from 'axios';
         projects: [],
         nextPage: 1,
         currentPage: 1,
+        lastPage: 1
       }
     },
     methods: {
-      getAllProjects() {
+       getAllProjects() {
         axios.get(this.store.apiBaseUrl + '/projects', { params: { page: this.nextPage } }).then((res) => {
           console.log(res.data);
           this.projects = res.data.results.data;
           this.currentPage = res.data.results.current_page;
           this.nextPage = this.currentPage +1;
+          this.lastPage = res.data.results.last_page;
         });
       },
   },
