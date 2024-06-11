@@ -8,7 +8,6 @@
     <div class="col-md-8">
       <div class="card-body">
         <h5 class="card-title">{{item.title}}
-            {{ item.image }}
         </h5>
         <p class="card-text">{{item.content}}</p>
         <p class="card-text"><small class="text-body-secondary">{{item.updated_at}}</small></p>
@@ -34,7 +33,7 @@
         computed: {
         getImage() {
 
-            return this.item.image ? this.store.imgBasePath + this.item.image : '';
+            return this.item.image ? this.store.imgBasePath + this.item.image : '../public/images/placeholder.png';
         }
     }
     }
