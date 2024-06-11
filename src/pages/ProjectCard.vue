@@ -1,9 +1,13 @@
 <template>
-      <div v-if="project">
+    <div class="container mt-4">
+        <div class="card" v-if="project">
         <h1>{{ project.title }}</h1>
-        
+        <img v-if="project.image" :src="store.imgBasePath + project.image" :alt="project.title">
+        <img v-else src="/images/placeholder.png" :alt="project.title">
         <p>{{ project.content }}</p>
     </div>
+    </div>
+      
 </template>
 
 <script>
@@ -11,7 +15,7 @@
     import axios from 'axios';
 
     export default {
-    name: 'PostComponent',
+    name: 'ProjectCard',
     data() {
         return {
             store,

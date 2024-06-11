@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import AppHome from "./pages/AppHome.vue";
 import ProjectList from "./pages/ProjectList.vue";
-import ProjectComponent from "./pages/ProjectComponent.vue";
+import ProjectCard from "./pages/ProjectCard.vue";
 
 const router = createRouter({
     history: createWebHistory(), /* crea un history per la web: tiene in memoria tutte le rotte che sono state raggiunte con il browser */
@@ -19,8 +19,9 @@ const router = createRouter({
       {
         path: "/posts/:slug",
         name: "single-project",
-        component: ProjectComponent,
+        component: ProjectCard,
       },
+
     ],
 });
 export { router };

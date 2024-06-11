@@ -17,10 +17,10 @@
         </li>
       </ul>
       <div class="ms-auto">
-                        <a href="http://localhost:8000" class="nav-link">
-                            <i class="fa-solid fa-user"></i> <span>Restricted Area</span>
-                        </a>
-                    </div>
+         <a href="http://localhost:8000" class="nav-link">
+            <i class="fa-solid fa-user"></i> <span>Restricted Area</span>
+        </a>
+    </div>
     </div>
   </div>
 </nav>

@@ -33,7 +33,7 @@
         computed: {
         getImage() {
 
-            return this.item.image ? this.store.imgBasePath + this.item.image : '../public/images/placeholder.png';
+            return this.item.image ? this.store.imgBasePath + this.item.image : './images/placeholder.png';
         }
     }
     }
@@ -41,5 +41,7 @@
 </script>
 
 <style lang="scss" scoped>
-
+    img{
+        object-fit: cover;
+    }
 </style>
