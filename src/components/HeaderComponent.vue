@@ -41,6 +41,10 @@
                     label: 'Projects',
                     routeName: 'projects'
                 },
+                {
+                    label: 'Contact',
+                    routeName: 'contact'
+                }
             ],
             show: false
         }
