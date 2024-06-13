@@ -5,7 +5,7 @@
 
 <div class="row">
 <div class="col-12 col-md-3 col-lg-6" v-for="project in projects" :key="project.id">
-    <CardComponent :item="project"/> <!-- il contenuto di project viene passato al generico item che viene passato come props nel CardComponent  -->
+    <CardComponent :item="project"/> <!-- il contenuto di project viene passato al generico item che, a sua volta, viene passato come props nel CardComponent  -->
   </div>
 </div>
   
@@ -44,8 +44,9 @@ export default {
       store,
       projects: [],
       nextPage: 1,
-      currentPage: 1,
-      lastPage: 1
+      currentPage: 0,
+      totalPage: 0,
+      params: null
     }
   },
   methods: {
@@ -55,7 +56,7 @@ export default {
         this.projects = res.data.results.data;
         this.currentPage = res.data.results.current_page;
         this.nextPage = this.currentPage +1;
-        this.lastPage = res.data.results.last_page;
+        this.totalPage = res.data.results.last_page;
       });
     },
 },
