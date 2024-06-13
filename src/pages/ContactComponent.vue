@@ -1,7 +1,9 @@
 <template>
     <div class="container mt-4">
         <h1>Contact us</h1>
-        <form>
+        <div class="row">
+            <form @submit.prevent="sendForm()" class="col-12
+        text-start">
             <div class="mb-3">
                 <input type="text" class="form-control border-0 border-bottom" placeholder="Name" v-model="name">
             </div>
@@ -13,6 +15,7 @@
             </div>
             <button type="submit" class="btn btn-primary">Send</button>
         </form>
+        </div>
     </div>
 </template>
 
@@ -27,6 +30,30 @@ import axios from 'axios';
                 name: '',
                 email: '',
                 message: ''
+            }
+        },
+        methods: {
+            sendForm() {
+
+                const data = {
+                    name: this.name,
+                    address: this.email,
+                    message: this.message
+                }
+                console.log(data);
+                axios.post(`${this.store.apiBaseUrl}/contacts`, data).then((res) => {
+                    console.log(res.data);
+                    this.success = true;
+                    this.name = '';
+                    this.email = '';
+                    this.message = '';
+                }).then((res) => {
+                    
+                }).catch((error) => {
+                  
+                }).finally(() => {
+                    
+                })
             }
         }
     }
